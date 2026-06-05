@@ -577,7 +577,7 @@ function simbriefURL(f, pid){
   const depm= f[3]%60;
   const steh= Math.floor(f[4]/60);
   const stem= f[4]%60;
-  let url = `https://dispatch.simbrief.com/options/custom?airline=AUA&fltnum=${fn}&type=${AC_TYPE[f[5]]}&orig=${dep.icao}&dest=${arr.icao}&deph=${deph}&depm=${depm}&steh=${steh}&stem=${stem}&planformat=LIDO&navlog=1&find_sidstar=1&units=KGS`;
+  let url = `https://dispatch.simbrief.com/options/custom?airline=AUA&fltnum=${fn}&type=${AC_TYPE[f[5]]}&orig=${dep.icao}&dest=${arr.icao}&deph=${deph}&depm=${depm}&steh=${steh}&stem=${stem}&reg=OE-LZE&planformat=LIDO&navlog=1&find_sidstar=1&units=KGS`;
   if(pid) url += `&pid=${encodeURIComponent(pid)}`;
   return url;
 }

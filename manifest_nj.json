@@ -1,0 +1,38 @@
+{
+  "name": "NJ Europe Phenom 300E Duty Planner",
+  "short_name": "NJ Duty",
+  "description": "NetJets Europe Phenom 300E crew duty planner – LOAN base",
+  "start_url": "./nj_phenom_roster.html",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#05080D",
+  "theme_color": "#05080D",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "icon_nj_192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon_nj_512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["utilities", "travel"],
+  "shortcuts": [
+    {
+      "name": "Weekday Pairings",
+      "short_name": "Weekday",
+      "url": "./nj_phenom_roster.html?sched=weekday"
+    },
+    {
+      "name": "Weekend Pairings",
+      "short_name": "Weekend",
+      "url": "./nj_phenom_roster.html?sched=weekend"
+    }
+  ]
+}
