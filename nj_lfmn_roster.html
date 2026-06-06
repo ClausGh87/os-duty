@@ -252,9 +252,15 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;
       <button class="sf-btn" data-region="Germany">◈  Germany GA</button>
       <button class="sf-btn" data-region="Italy">◈  Italy</button>
       <button class="sf-btn" data-region="Austria">◈  Austria</button>
-      <button class="sf-btn" data-region="UK">◈  United Kingdom</button>
-      <button class="sf-btn" data-region="Iberia">◈  Iberia</button>
+      <button class="sf-btn" data-region="UK">◈  UK &amp; Ireland</button>
+      <button class="sf-btn" data-region="Iberia">◈  Iberia &amp; Portugal</button>
       <button class="sf-btn" data-region="France">◈  France</button>
+      <button class="sf-btn" data-region="Greece">◈  Greece</button>
+      <button class="sf-btn" data-region="Scandinavia">◈  Scandinavia</button>
+      <button class="sf-btn" data-region="Eastern Europe">◈  Eastern Europe</button>
+      <button class="sf-btn" data-region="Adriatic">◈  Adriatic &amp; Balkans</button>
+      <button class="sf-btn" data-region="Med & East">◈  Med &amp; Turkey</button>
+      <button class="sf-btn" data-region="Western Europe">◈  Benelux</button>
     </div>
   </div>
 
@@ -343,32 +349,105 @@ const AP = {
   LEMD:{name:"Madrid Barajas",city:"Madrid",country:"🇪🇸",region:"Iberia"},
   LEIB:{name:"Ibiza",city:"Ibiza",country:"🇪🇸",region:"Iberia"},
   LEPA:{name:"Palma de Mallorca",city:"Palma",country:"🇪🇸",region:"Iberia"},
+  LECO:{name:"A Coruña",city:"A Coruña",country:"🇪🇸",region:"Iberia"},
+  LESU:{name:"La Seu d'Urgell",city:"Andorra region",country:"🇪🇸",region:"Iberia"},
+  // Austria extra
+  LOWG:{name:"Graz",city:"Graz",country:"🇦🇹",region:"Austria"},
+  LOWL:{name:"Linz / Hörsching",city:"Linz",country:"🇦🇹",region:"Austria"},
+  LOWK:{name:"Klagenfurt",city:"Klagenfurt",country:"🇦🇹",region:"Austria"},
+  // Germany extra
+  EDDM:{name:"Munich",city:"Munich",country:"🇩🇪",region:"Germany"},
+  EDDF:{name:"Frankfurt",city:"Frankfurt",country:"🇩🇪",region:"Germany"},
+  EDDL:{name:"Düsseldorf",city:"Düsseldorf",country:"🇩🇪",region:"Germany"},
+  EDDK:{name:"Cologne / Bonn",city:"Cologne",country:"🇩🇪",region:"Germany"},
+  EDDS:{name:"Stuttgart",city:"Stuttgart",country:"🇩🇪",region:"Germany"},
+  EDHL:{name:"Lübeck Blankensee",city:"Lübeck",country:"🇩🇪",region:"Germany"},
+  EDHK:{name:"Kiel Holtenau",city:"Kiel",country:"🇩🇪",region:"Germany"},
+  // UK extra
+  EGFF:{name:"Cardiff",city:"Cardiff",country:"🇬🇧",region:"UK"},
+  EGSS:{name:"London Stansted",city:"London",country:"🇬🇧",region:"UK"},
+  EGLF:{name:"Farnborough",city:"Hampshire",country:"🇬🇧",region:"UK"},
+  EGCB:{name:"Manchester Barton",city:"Manchester",country:"🇬🇧",region:"UK"},
+  EGPK:{name:"Glasgow Prestwick",city:"Glasgow",country:"🇬🇧",region:"UK"},
+  EGGP:{name:"Liverpool John Lennon",city:"Liverpool",country:"🇬🇧",region:"UK"},
+  // Ireland
+  EICK:{name:"Cork",city:"Cork",country:"🇮🇪",region:"UK"},
+  // Netherlands
+  EHRD:{name:"Rotterdam The Hague",city:"Rotterdam",country:"🇳🇱",region:"Western Europe"},
+  // Belgium
+  EBBR:{name:"Brussels",city:"Brussels",country:"🇧🇪",region:"Western Europe"},
+  // Portugal
+  LPPT:{name:"Lisbon",city:"Lisbon",country:"🇵🇹",region:"Iberia"},
+  LPFR:{name:"Faro (Algarve)",city:"Faro",country:"🇵🇹",region:"Iberia"},
+  // Scandinavia
+  EFHK:{name:"Helsinki",city:"Helsinki",country:"🇫🇮",region:"Scandinavia"},
+  ENGM:{name:"Oslo Gardermoen",city:"Oslo",country:"🇳🇴",region:"Scandinavia"},
+  ESSA:{name:"Stockholm Arlanda",city:"Stockholm",country:"🇸🇪",region:"Scandinavia"},
+  EKCH:{name:"Copenhagen",city:"Copenhagen",country:"🇩🇰",region:"Scandinavia"},
+  EKRN:{name:"Bornholm (Rønne)",city:"Bornholm",country:"🇩🇰",region:"Scandinavia"},
+  // Eastern Europe
+  LYBE:{name:"Belgrade",city:"Belgrade",country:"🇷🇸",region:"Eastern Europe"},
+  LBSF:{name:"Sofia",city:"Sofia",country:"🇧🇬",region:"Eastern Europe"},
+  EPKK:{name:"Kraków",city:"Kraków",country:"🇵🇱",region:"Eastern Europe"},
+  LZTT:{name:"Poprad-Tatry",city:"High Tatras",country:"🇸🇰",region:"Eastern Europe"},
+  EYVI:{name:"Vilnius",city:"Vilnius",country:"🇱🇹",region:"Eastern Europe"},
+  LKCS:{name:"České Budějovice",city:"South Bohemia",country:"🇨🇿",region:"Eastern Europe"},
+  // Slovenia
+  LJMB:{name:"Maribor",city:"Maribor",country:"🇸🇮",region:"Adriatic"},
+  // Croatia
+  LDRI:{name:"Rijeka",city:"Rijeka",country:"🇭🇷",region:"Adriatic"},
+  // Turkey
+  LTFM:{name:"Istanbul",city:"Istanbul",country:"🇹🇷",region:"Med & East"},
+  LTAI:{name:"Antalya",city:"Antalya",country:"🇹🇷",region:"Med & East"},
+  // Greece extra
+  LGKO:{name:"Kos",city:"Kos",country:"🇬🇷",region:"Greece"},
+  // Italy extra
+  LIEO:{name:"Olbia (Sardinia)",city:"Olbia",country:"🇮🇹",region:"Italy"},
+  LICC:{name:"Catania (Sicily)",city:"Catania",country:"🇮🇹",region:"Italy"},
+  LICJ:{name:"Palermo (Sicily)",city:"Palermo",country:"🇮🇹",region:"Italy"},
+  LILO:{name:"Sondrio",city:"Sondrio / Valtellina",country:"🇮🇹",region:"Italy"},
+  LIPB:{name:"Bolzano",city:"Bolzano / South Tyrol",country:"🇮🇹",region:"Italy"},
+  LIRJ:{name:"Marina di Campo (Elba)",city:"Elba Island",country:"🇮🇹",region:"Italy"},
 };
 
 // ═══════════════════════════════════════════════════════════
 //  BLOCK TIMES FROM LFMN (minutes, Phenom 300E 464 kt)
-//  Realistic routing including routing penalties & wind avg
+//  Realistic great-circle routing + 10-15% routing penalty
 //  GND minimum 20 min between legs
 // ═══════════════════════════════════════════════════════════
-// LFMN to/from each airport (symmetric ± 5 min for wind)
 const BLK = {
   // Austria
-  LOWW:  95, LOWS:  70, LOWI:  55,
-  // Germany GA
-  EDNY:  50, EDMA:  60, EDJA:  55,
-  EDFE:  95, EDXW: 155,
+  LOWW: 95, LOWS: 70, LOWI: 55, LOWG: 80, LOWL: 90, LOWK: 75,
+  // Germany
+  EDNY: 50, EDMA: 60, EDJA: 55, EDFE: 95, EDXW:155,
+  EDDM: 65, EDDF:100, EDDL:120, EDDK:115, EDDS: 80, EDHL:145, EDHK:150,
   // Italy
-  LIML:  40, LIRF:  75, LIRN:  90, LIRI:  95,
+  LIML: 40, LIRF: 75, LIRN: 90, LIRI: 95, LIEO:100,
+  LICC:110, LICJ:115, LILO: 45, LIPB: 35, LIRJ: 55,
   // Slovenia
-  LJPZ:  80,
+  LJPZ: 80, LJMB: 85,
   // Switzerland
-  LSZS:  45, LSZR:  65, LSZH:  60, LSGG:  30,
-  // UK
-  EGSS: 110, EGTK: 105, EGKB: 100,
+  LSZS: 45, LSZR: 65, LSZH: 60, LSGG: 30,
+  // UK & Ireland
+  EGSS:110, EGTK:105, EGKB:100, EGFF:110, EGLF:105,
+  EGCB:130, EGPK:145, EGGP:125, EICK:130,
   // France
-  LFPB: 75,  LFMD:  10,
+  LFPB: 75, LFMD: 10,
   // Iberia
-  LEMD: 130, LEIB:  65, LEPA:  70,
+  LEMD:130, LEIB: 65, LEPA: 70, LECO:175, LESU: 55,
+  LPPT:175, LPFR:185,
+  // Benelux
+  EHRD:125, EBBR:120,
+  // Scandinavia
+  EFHK:210, ENGM:195, ESSA:185, EKCH:165, EKRN:175,
+  // Eastern Europe
+  LYBE:110, LBSF:130, EPKK:155, LZTT:160, EYVI:205, LKCS:130,
+  // Croatia
+  LDRI: 85,
+  // Turkey & Med
+  LTFM:185, LTAI:185,
+  // Greece
+  LGAV:130, LGIR:145, LGKO:150, LGKR:120, LGRP:150, LGSM:140,
 };
 
 // ═══════════════════════════════════════════════════════════
@@ -746,6 +825,324 @@ const PAIRINGS = [
        {dep:"EGSS",arr:"LFPB",std:17*60,  dur:50,  type:"charter"},
        {dep:"LFPB",arr:"LFMN",std:21*60,  dur:75,  type:"charter"}],
  weekday:true,weekend:false},
+
+// ══════════════════════════════════════════════
+//  NEW PAIRINGS – FULL apt.txt AIRPORT SET
+// ══════════════════════════════════════════════
+
+// ── Austria expanded ──
+{id:"X01",name:"Nice → Graz",desc:"Styrian capital charter",
+ legs:[{dep:"LFMN",arr:"LOWG",std:8*60,   dur:80, type:"charter"},
+       {dep:"LOWG",arr:"LFMN",std:18*60,  dur:80, type:"charter"}],
+ weekday:true,weekend:false},
+
+{id:"X02",name:"Nice → Klagenfurt",desc:"Carinthia / Wörthersee",
+ legs:[{dep:"LFMN",arr:"LOWK",std:8*60,   dur:75, type:"charter"},
+       {dep:"LOWK",arr:"LFMN",std:18*60,  dur:75, type:"charter"}],
+ weekday:false,weekend:true},
+
+{id:"X03",name:"Nice → Linz",desc:"Upper Austria industrial hub",
+ legs:[{dep:"LFMN",arr:"LOWL",std:8*60,   dur:90, type:"charter"},
+       {dep:"LOWL",arr:"LFMN",std:19*60,  dur:90, type:"charter"}],
+ weekday:true,weekend:false},
+
+{id:"X04",name:"Vienna – Salzburg – Innsbruck – Nice",desc:"Full Austrian arc return",
+ legs:[{dep:"LFMN",arr:"LOWW",std:7*60,   dur:95, type:"charter"},
+       {dep:"LOWW",arr:"LOWS",std:11*60+30,dur:35,type:"charter"},
+       {dep:"LOWS",arr:"LOWI",std:14*60+30,dur:35,type:"charter"},
+       {dep:"LOWI",arr:"LFMN",std:18*60,  dur:55, type:"charter"}],
+ weekday:false,weekend:true},
+
+{id:"X05",name:"Graz – Klagenfurt – Nice",desc:"Southern Austria double",
+ legs:[{dep:"LFMN",arr:"LOWG",std:8*60,   dur:80, type:"charter"},
+       {dep:"LOWG",arr:"LOWK",std:11*60,  dur:30, type:"charter"},
+       {dep:"LOWK",arr:"LFMN",std:14*60+30,dur:75,type:"charter"}],
+ weekday:true,weekend:false},
+
+// ── Italy: Elba, Sondrio, Bolzano, Sardinia, Sicily ──
+{id:"X10",name:"Nice → Elba (Marina di Campo)",desc:"Tuscan island GA hop",
+ legs:[{dep:"LFMN",arr:"LIRJ",std:9*60,   dur:55, type:"charter"},
+       {dep:"LIRJ",arr:"LFMN",std:16*60,  dur:55, type:"charter"}],
+ weekday:false,weekend:true},
+
+{id:"X11",name:"Nice → Bolzano",desc:"South Tyrol / Dolomites charter",
+ legs:[{dep:"LFMN",arr:"LIPB",std:8*60+30,dur:35, type:"charter"},
+       {dep:"LIPB",arr:"LFMN",std:15*60,  dur:35, type:"charter"}],
+ weekday:true,weekend:true},
+
+{id:"X12",name:"Bolzano – Samedan – Nice",desc:"Dolomites to Engadin ski",
+ legs:[{dep:"LFMN",arr:"LIPB",std:8*60,   dur:35, type:"charter"},
+       {dep:"LIPB",arr:"LSZS",std:11*60,  dur:30, type:"charter"},
+       {dep:"LSZS",arr:"LFMN",std:15*60,  dur:45, type:"charter"}],
+ weekday:false,weekend:true},
+
+{id:"X13",name:"Nice → Sondrio",desc:"Valtellina valley GA field",
+ legs:[{dep:"LFMN",arr:"LILO",std:9*60,   dur:45, type:"charter"},
+       {dep:"LILO",arr:"LFMN",std:16*60,  dur:45, type:"charter"}],
+ weekday:true,weekend:false},
+
+{id:"X14",name:"Nice → Olbia (Sardinia)",desc:"Costa Smeralda VIP",
+ legs:[{dep:"LFMN",arr:"LIEO",std:8*60,   dur:100,type:"charter"},
+       {dep:"LIEO",arr:"LFMN",std:18*60,  dur:100,type:"charter"}],
+ weekday:false,weekend:true},
+
+{id:"X15",name:"Nice → Catania",desc:"Sicily eastern charter",
+ legs:[{dep:"LFMN",arr:"LICC",std:8*60,   dur:110,type:"charter"},
+       {dep:"LICC",arr:"LFMN",std:19*60,  dur:110,type:"charter"}],
+ weekday:true,weekend:false},
+
+{id:"X16",name:"Nice → Palermo",desc:"Sicily western charter",
+ legs:[{dep:"LFMN",arr:"LICJ",std:8*60,   dur:115,type:"charter"},
+       {dep:"LICJ",arr:"LFMN",std:19*60+30,dur:115,type:"charter"}],
+ weekday:true,weekend:false},
+
+{id:"X17",name:"Catania – Palermo – Nice",desc:"Sicily twin-city return",
+ legs:[{dep:"LFMN",arr:"LICC",std:8*60,   dur:110,type:"charter"},
+       {dep:"LICC",arr:"LICJ",std:12*60,  dur:25, type:"charter"},
+       {dep:"LICJ",arr:"LFMN",std:16*60,  dur:115,type:"charter"}],
+ weekday:true,weekend:false},
+
+{id:"X18",name:"Elba – Rome – Naples – Nice",desc:"Tuscan island to southern Italy arc",
+ legs:[{dep:"LFMN",arr:"LIRJ",std:8*60,   dur:55, type:"charter"},
+       {dep:"LIRJ",arr:"LIRF",std:11*60,  dur:50, type:"charter"},
+       {dep:"LIRF",arr:"LIRN",std:14*60+30,dur:45,type:"charter"},
+       {dep:"LIRN",arr:"LFMN",std:18*60+30,dur:90,type:"charter"}],
+ weekday:false,weekend:true},
+
+// ── Germany expanded ──
+{id:"X20",name:"Nice → Munich",desc:"Bavarian capital charter",
+ legs:[{dep:"LFMN",arr:"EDDM",std:8*60,   dur:65, type:"charter"},
+       {dep:"EDDM",arr:"LFMN",std:18*60,  dur:65, type:"charter"}],
+ weekday:true,weekend:false},
+
+{id:"X21",name:"Nice → Frankfurt",desc:"Financial capital charter",
+ legs:[{dep:"LFMN",arr:"EDDF",std:8*60,   dur:100,type:"charter"},
+       {dep:"EDDF",arr:"LFMN",std:19*60,  dur:100,type:"charter"}],
+ weekday:true,weekend:false},
+
+{id:"X22",name:"Nice → Stuttgart",desc:"Baden-Württemberg run",
+ legs:[{dep:"LFMN",arr:"EDDS",std:8*60,   dur:80, type:"charter"},
+       {dep:"EDDS",arr:"LFMN",std:18*60,  dur:80, type:"charter"}],
+ weekday:true,weekend:false},
+
+{id:"X23",name:"Nice → Düsseldorf",desc:"NRW charter",
+ legs:[{dep:"LFMN",arr:"EDDL",std:8*60,   dur:120,type:"charter"},
+       {dep:"EDDL",arr:"LFMN",std:19*60+30,dur:120,type:"charter"}],
+ weekday:true,weekend:false},
+
+{id:"X24",name:"Nice → Cologne / Bonn",desc:"Rheinland executive",
+ legs:[{dep:"LFMN",arr:"EDDK",std:8*60,   dur:115,type:"charter"},
+       {dep:"EDDK",arr:"LFMN",std:19*60,  dur:115,type:"charter"}],
+ weekday:true,weekend:false},
+
+{id:"X25",name:"Nice → Lübeck",desc:"Northern German port city",
+ legs:[{dep:"LFMN",arr:"EDHL",std:8*60,   dur:145,type:"charter"},
+       {dep:"EDHL",arr:"LFMN",std:19*60+30,dur:145,type:"charter"}],
+ weekday:true,weekend:false},
+
+{id:"X26",name:"Nice → Kiel",desc:"Schleswig-Holstein charter",
+ legs:[{dep:"LFMN",arr:"EDHK",std:8*60,   dur:150,type:"charter"},
+       {dep:"EDHK",arr:"LFMN",std:19*60+30,dur:150,type:"charter"}],
+ weekday:true,weekend:false},
+
+{id:"X27",name:"Munich – Düsseldorf – Sylt – Nice",desc:"German north–south sweep",
+ legs:[{dep:"LFMN",arr:"EDDM",std:7*60,   dur:65, type:"charter"},
+       {dep:"EDDM",arr:"EDDL",std:10*60,  dur:65, type:"charter"},
+       {dep:"EDDL",arr:"EDXW",std:13*60+30,dur:55,type:"charter"},
+       {dep:"EDXW",arr:"LFMN",std:17*60,  dur:155,type:"reposit"}],
+ weekday:true,weekend:false},
+
+{id:"X28",name:"Kiel – Lübeck – Nice",desc:"North German ports double",
+ legs:[{dep:"LFMN",arr:"EDHK",std:7*60,   dur:150,type:"charter"},
+       {dep:"EDHK",arr:"EDHL",std:11*60+30,dur:20,type:"charter"},
+       {dep:"EDHL",arr:"LFMN",std:15*60+30,dur:145,type:"charter"}],
+ weekday:true,weekend:false},
+
+// ── UK expanded ──
+{id:"X30",name:"Nice → Cardiff",desc:"Welsh capital charter",
+ legs:[{dep:"LFMN",arr:"EGFF",std:8*60,   dur:110,type:"charter"},
+       {dep:"EGFF",arr:"LFMN",std:19*60,  dur:110,type:"charter"}],
+ weekday:true,weekend:false},
+
+{id:"X31",name:"Nice → Farnborough",desc:"Hampshire VIP GA",
+ legs:[{dep:"LFMN",arr:"EGLF",std:8*60,   dur:105,type:"charter"},
+       {dep:"EGLF",arr:"LFMN",std:19*60,  dur:105,type:"charter"}],
+ weekday:true,weekend:false},
+
+{id:"X32",name:"Nice → Manchester Barton",desc:"Manchester GA bizjet field",
+ legs:[{dep:"LFMN",arr:"EGCB",std:8*60,   dur:130,type:"charter"},
+       {dep:"EGCB",arr:"LFMN",std:19*60+30,dur:130,type:"charter"}],
+ weekday:true,weekend:false},
+
+{id:"X33",name:"Nice → Liverpool ends away",desc:"Liverpool John Lennon overnight",
+ legs:[{dep:"LFMN",arr:"EGGP",std:8*60,   dur:125,type:"charter"},
+       {dep:"EGGP",arr:"EGGP",std:0,       dur:0,  type:"charter"}],
+ weekday:true,weekend:false},
+
+{id:"X34",name:"Cardiff – Farnborough – Nice",desc:"Welsh–English arc return",
+ legs:[{dep:"LFMN",arr:"EGFF",std:8*60,   dur:110,type:"charter"},
+       {dep:"EGFF",arr:"EGLF",std:11*60+30,dur:30, type:"charter"},
+       {dep:"EGLF",arr:"LFMN",std:16*60,  dur:105,type:"charter"}],
+ weekday:true,weekend:false},
+
+{id:"X35",name:"Cork – Oxford – Nice",desc:"Ireland–UK–Riviera arc",
+ legs:[{dep:"LFMN",arr:"EICK",std:8*60,   dur:130,type:"charter"},
+       {dep:"EICK",arr:"EGTK",std:12*60,  dur:60, type:"charter"},
+       {dep:"EGTK",arr:"LFMN",std:17*60,  dur:105,type:"charter"}],
+ weekday:true,weekend:false},
+
+// ── Iberia & Portugal ──
+{id:"X40",name:"Nice → A Coruña ends away",desc:"Galicia, northwest Spain overnight",
+ legs:[{dep:"LFMN",arr:"LECO",std:8*60,   dur:175,type:"charter"},
+       {dep:"LECO",arr:"LECO",std:0,       dur:0,  type:"charter"}],
+ weekday:true,weekend:false},
+
+{id:"X41",name:"Nice → La Seu d'Urgell",desc:"Andorra gateway, Pyrenean approach",
+ legs:[{dep:"LFMN",arr:"LESU",std:9*60,   dur:55, type:"charter"},
+       {dep:"LESU",arr:"LFMN",std:16*60,  dur:55, type:"charter"}],
+ weekday:true,weekend:true},
+
+{id:"X42",name:"Nice → Lisbon",desc:"Atlantic capital day trip",
+ legs:[{dep:"LFMN",arr:"LPPT",std:8*60,   dur:175,type:"charter"},
+       {dep:"LPPT",arr:"LFMN",std:19*60+30,dur:175,type:"charter"}],
+ weekday:true,weekend:false},
+
+{id:"X43",name:"Nice → Faro ends away",desc:"Algarve overnight",
+ legs:[{dep:"LFMN",arr:"LPFR",std:8*60,   dur:185,type:"charter"},
+       {dep:"LPFR",arr:"LPFR",std:0,       dur:0,  type:"charter"}],
+ weekday:false,weekend:true},
+
+{id:"X44",name:"La Seu – Palma – Ibiza – Nice",desc:"Pyrenees to Balearics circuit",
+ legs:[{dep:"LFMN",arr:"LESU",std:8*60,   dur:55, type:"charter"},
+       {dep:"LESU",arr:"LEPA",std:11*60,  dur:55, type:"charter"},
+       {dep:"LEPA",arr:"LEIB",std:14*60+30,dur:25,type:"charter"},
+       {dep:"LEIB",arr:"LFMN",std:17*60+30,dur:65,type:"charter"}],
+ weekday:false,weekend:true},
+
+{id:"X45",name:"Lisbon – Faro – Nice",desc:"Portugal coast return arc",
+ legs:[{dep:"LFMN",arr:"LPPT",std:7*60+30,dur:175,type:"charter"},
+       {dep:"LPPT",arr:"LPFR",std:12*60,  dur:55, type:"charter"},
+       {dep:"LPFR",arr:"LFMN",std:16*60+30,dur:185,type:"charter"}],
+ weekday:true,weekend:false},
+
+// ── Benelux ──
+{id:"X50",name:"Nice → Rotterdam",desc:"Port city / finance run",
+ legs:[{dep:"LFMN",arr:"EHRD",std:8*60,   dur:125,type:"charter"},
+       {dep:"EHRD",arr:"LFMN",std:19*60+30,dur:125,type:"charter"}],
+ weekday:true,weekend:false},
+
+{id:"X51",name:"Nice → Brussels",desc:"EU institutions charter",
+ legs:[{dep:"LFMN",arr:"EBBR",std:8*60,   dur:120,type:"charter"},
+       {dep:"EBBR",arr:"LFMN",std:19*60,  dur:120,type:"charter"}],
+ weekday:true,weekend:false},
+
+{id:"X52",name:"Rotterdam – Brussels – Nice",desc:"Benelux dual-city return",
+ legs:[{dep:"LFMN",arr:"EHRD",std:8*60,   dur:125,type:"charter"},
+       {dep:"EHRD",arr:"EBBR",std:12*60,  dur:35, type:"charter"},
+       {dep:"EBBR",arr:"LFMN",std:16*60,  dur:120,type:"charter"}],
+ weekday:true,weekend:false},
+
+// ── Scandinavia ──
+{id:"X60",name:"Nice → Copenhagen ends away",desc:"Danish capital overnight",
+ legs:[{dep:"LFMN",arr:"EKCH",std:8*60,   dur:165,type:"charter"},
+       {dep:"EKCH",arr:"EKCH",std:0,       dur:0,  type:"charter"}],
+ weekday:true,weekend:false},
+
+{id:"X61",name:"Nice → Bornholm ends away",desc:"Baltic island overnight",
+ legs:[{dep:"LFMN",arr:"EKRN",std:8*60,   dur:175,type:"charter"},
+       {dep:"EKRN",arr:"EKRN",std:0,       dur:0,  type:"charter"}],
+ weekday:false,weekend:true},
+
+{id:"X62",name:"Nice → Oslo ends away",desc:"Norwegian capital overnight",
+ legs:[{dep:"LFMN",arr:"ENGM",std:8*60,   dur:195,type:"charter"},
+       {dep:"ENGM",arr:"ENGM",std:0,       dur:0,  type:"charter"}],
+ weekday:true,weekend:false},
+
+{id:"X63",name:"Copenhagen – Bornholm – Nice",desc:"Baltic island hop return",
+ legs:[{dep:"LFMN",arr:"EKCH",std:7*60+30,dur:165,type:"charter"},
+       {dep:"EKCH",arr:"EKRN",std:13*60,  dur:35, type:"charter"},
+       {dep:"EKRN",arr:"LFMN",std:17*60,  dur:175,type:"charter"}],
+ weekday:false,weekend:true},
+
+// ── Greece extra ──
+{id:"X70",name:"Nice → Kos ends away",desc:"Dodecanese island overnight",
+ legs:[{dep:"LFMN",arr:"LGKO",std:8*60,   dur:150,type:"charter"},
+       {dep:"LGKO",arr:"LGKO",std:0,       dur:0,  type:"charter"}],
+ weekday:false,weekend:true},
+
+{id:"X71",name:"Athens – Corfu – Nice",desc:"Greek arc: capital to Ionian",
+ legs:[{dep:"LFMN",arr:"LGAV",std:8*60,   dur:130,type:"charter"},
+       {dep:"LGAV",arr:"LGKR",std:12*60,  dur:60, type:"charter"},
+       {dep:"LGKR",arr:"LFMN",std:16*60,  dur:120,type:"charter"}],
+ weekday:false,weekend:true},
+
+{id:"X72",name:"Rhodes – Kos – Heraklion – Nice",desc:"Aegean island hop return",
+ legs:[{dep:"LFMN",arr:"LGRP",std:7*60+30,dur:150,type:"charter"},
+       {dep:"LGRP",arr:"LGKO",std:12*60,  dur:25, type:"charter"},
+       {dep:"LGKO",arr:"LGIR",std:15*60,  dur:40, type:"charter"},
+       {dep:"LGIR",arr:"LFMN",std:19*60,  dur:145,type:"charter"}],
+ weekday:false,weekend:true},
+
+// ── Eastern Europe ──
+{id:"X80",name:"Nice → Belgrade ends away",desc:"Serbian capital overnight",
+ legs:[{dep:"LFMN",arr:"LYBE",std:8*60,   dur:110,type:"charter"},
+       {dep:"LYBE",arr:"LYBE",std:0,       dur:0,  type:"charter"}],
+ weekday:true,weekend:false},
+
+{id:"X81",name:"Nice → Kraków ends away",desc:"Polish cultural capital overnight",
+ legs:[{dep:"LFMN",arr:"EPKK",std:8*60,   dur:155,type:"charter"},
+       {dep:"EPKK",arr:"EPKK",std:0,       dur:0,  type:"charter"}],
+ weekday:true,weekend:false},
+
+{id:"X82",name:"Nice → Poprad-Tatry",desc:"High Tatras ski charter, return",
+ legs:[{dep:"LFMN",arr:"LZTT",std:8*60,   dur:160,type:"charter"},
+       {dep:"LZTT",arr:"LFMN",std:19*60+30,dur:160,type:"charter"}],
+ weekday:false,weekend:true},
+
+{id:"X83",name:"Nice → Vilnius ends away",desc:"Lithuanian capital overnight",
+ legs:[{dep:"LFMN",arr:"EYVI",std:8*60,   dur:205,type:"charter"},
+       {dep:"EYVI",arr:"EYVI",std:0,       dur:0,  type:"charter"}],
+ weekday:true,weekend:false},
+
+{id:"X84",name:"Nice → České Budějovice",desc:"South Bohemia day trip",
+ legs:[{dep:"LFMN",arr:"LKCS",std:8*60,   dur:130,type:"charter"},
+       {dep:"LKCS",arr:"LFMN",std:17*60,  dur:130,type:"charter"}],
+ weekday:true,weekend:false},
+
+{id:"X85",name:"Belgrade – Sofia – Nice",desc:"Balkan dual-city return",
+ legs:[{dep:"LFMN",arr:"LYBE",std:7*60+30,dur:110,type:"charter"},
+       {dep:"LYBE",arr:"LBSF",std:11*60,  dur:55, type:"charter"},
+       {dep:"LBSF",arr:"LFMN",std:15*60,  dur:130,type:"charter"}],
+ weekday:true,weekend:false},
+
+// ── Adriatic ──
+{id:"X90",name:"Nice → Rijeka",desc:"Croatian port city charter",
+ legs:[{dep:"LFMN",arr:"LDRI",std:8*60+30,dur:85, type:"charter"},
+       {dep:"LDRI",arr:"LFMN",std:16*60,  dur:85, type:"charter"}],
+ weekday:false,weekend:true},
+
+{id:"X91",name:"Nice → Maribor",desc:"Slovenian Styrian charter",
+ legs:[{dep:"LFMN",arr:"LJMB",std:8*60+30,dur:85, type:"charter"},
+       {dep:"LJMB",arr:"LFMN",std:16*60,  dur:85, type:"charter"}],
+ weekday:true,weekend:false},
+
+{id:"X92",name:"Rijeka – Portorož – Maribor – Nice",desc:"Slovenian–Croatian Adriatic arc",
+ legs:[{dep:"LFMN",arr:"LDRI",std:8*60,   dur:85, type:"charter"},
+       {dep:"LDRI",arr:"LJPZ",std:11*60,  dur:30, type:"charter"},
+       {dep:"LJPZ",arr:"LJMB",std:14*60,  dur:40, type:"charter"},
+       {dep:"LJMB",arr:"LFMN",std:17*60+30,dur:85,type:"charter"}],
+ weekday:false,weekend:true},
+
+// ── Turkey & Med ──
+{id:"X95",name:"Nice → Istanbul ends away",desc:"Bosphorus overnight",
+ legs:[{dep:"LFMN",arr:"LTFM",std:8*60,   dur:185,type:"charter"},
+       {dep:"LTFM",arr:"LTFM",std:0,       dur:0,  type:"charter"}],
+ weekday:true,weekend:false},
+
+{id:"X96",name:"Nice → Antalya ends away",desc:"Turkish Riviera overnight",
+ legs:[{dep:"LFMN",arr:"LTAI",std:8*60,   dur:185,type:"charter"},
+       {dep:"LTAI",arr:"LTAI",std:0,       dur:0,  type:"charter"}],
+ weekday:false,weekend:true},
 
 ];
 
